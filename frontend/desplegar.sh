@@ -60,6 +60,8 @@ cd $WORKINDIR/frontend/liquor-store-images/frontend-image/
 mv docker-compose.yml $WORKINDIR/frontend/liquor-store-web/
 mv Dockerfile $WORKINDIR/frontend/liquor-store-web/
 cd $WORKINDIR/frontend/liquor-store-web/
-docker-compose up --build
+ng build --configuration=production
+docker build -t angular-app .
+docker run -p 80:4200 angular-app
 
 sleep 300
