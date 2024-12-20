@@ -62,5 +62,5 @@ mv docker-compose.yml $WORKINDIR/frontend/
 mv Dockerfile $WORKINDIR/frontend/
 mv nginx.conf $WORKINDIR/frontend/
 cd $WORKINDIR/frontend/
-docker-compose build
-docker-compose up
+docker-compose -f docker-compose.yml build --no-cache
+docker-compose -f  docker-compose.yml up -d
