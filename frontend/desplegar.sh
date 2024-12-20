@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Configuración de nombres de los repositorios y carpetas locales
 REPO1_URL="https://github.com/LiquorStore-APP/liquor-store-web.git"
@@ -12,6 +12,7 @@ WORKINDIR="/f/DOCUMENTOS/LiquorStore-APP/liquor-store-deploy-utils"
 cleanup() {
     echo ">>> Eliminando los repositorios clonados..."
     rm -rf "$REPO1_DIR" "$REPO2_DIR"
+    rm -rf "docker-compose.yml" "Dockerfile" "nginx.conf"
 
     if [ $? -eq 0 ]; then
         echo "✅ Repositorios eliminados correctamente."
@@ -57,11 +58,9 @@ ls -la $REPO2_DIR
 
 pwd
 cd $WORKINDIR/frontend/liquor-store-images/frontend-image/
-mv docker-compose.yml $WORKINDIR/frontend/liquor-store-web/
-mv Dockerfile $WORKINDIR/frontend/liquor-store-web/
-cd $WORKINDIR/frontend/liquor-store-web/
-ng build --configuration=production
-docker build -t angular-app .
-docker run -p 80:4200 angular-app
-
-sleep 300
+mv docker-compose.yml $WORKINDIR/frontend/
+mv Dockerfile $WORKINDIR/frontend/
+mv nginx.conf $WORKINDIR/frontend/
+cd $WORKINDIR/frontend/
+docker-compose build
+docker-compose up
