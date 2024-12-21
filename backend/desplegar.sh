@@ -12,7 +12,7 @@ WORKINDIR="/f/DOCUMENTOS/LiquorStore-APP/liquor-store-deploy-utils"
 cleanup() {
     echo ">>> Eliminando los repositorios clonados..."
     rm -rf "$REPO1_DIR" "$REPO2_DIR"
-    rm -rf "docker-compose.yml" "Dockerfile" "nginx.conf"
+    rm -rf "docker-compose.yml" "Dockerfile"
 
     if [ $? -eq 0 ]; then
         echo "✅ Repositorios eliminados correctamente."
