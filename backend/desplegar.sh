@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Configuración de nombres de los repositorios y carpetas locales
-REPO1_URL="https://github.com/LiquorStore-APP/liquor-store-web.git"
+REPO1_URL="https://github.com/LiquorStore-APP/liquor-store-api.git"
 REPO2_URL="https://github.com/LiquorStore-APP/liquor-store-images.git"
 
-REPO1_DIR="liquor-store-web"
+REPO1_DIR="liquor-store-api"
 REPO2_DIR="liquor-store-images"
 WORKINDIR="/f/DOCUMENTOS/LiquorStore-APP/liquor-store-deploy-utils"
 
@@ -57,10 +57,9 @@ echo ">>> Contenido del repositorio 2:"
 ls -la $REPO2_DIR
 
 pwd
-cd $WORKINDIR/frontend/liquor-store-images/frontend-image/
-mv docker-compose.yml $WORKINDIR/frontend/
-mv Dockerfile $WORKINDIR/frontend/
-mv nginx.conf $WORKINDIR/frontend/
-cd $WORKINDIR/frontend/
+cd $WORKINDIR/backend/liquor-store-images/backend-image/
+mv docker-compose.yml $WORKINDIR/backend/
+mv Dockerfile $WORKINDIR/backend/
+cd $WORKINDIR/backend/
 docker-compose -f docker-compose.yml build --no-cache
 docker-compose -f  docker-compose.yml up -d
