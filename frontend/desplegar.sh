@@ -61,6 +61,10 @@ cd $WORKINDIR/frontend/liquor-store-images/frontend-image/
 mv docker-compose.yml $WORKINDIR/frontend/
 mv Dockerfile $WORKINDIR/frontend/
 mv nginx.conf $WORKINDIR/frontend/
+rm -rf $WORKINDIR/frontend/liquor-store-web/src/environments/environment.ts
+rm -rf $WORKINDIR/frontend/liquor-store-web/src/environments/environment.prod.ts
+mv environment.ts $WORKINDIR/frontend/liquor-store-web/src/environments/
+mv environment.prod.ts $WORKINDIR/frontend/liquor-store-web/src/environments/
 cd $WORKINDIR/frontend/
 docker-compose -f docker-compose.yml build --no-cache
 docker-compose -f docker-compose.yml up -d
