@@ -62,4 +62,4 @@ mv docker-compose.yml $WORKINDIR/backend/
 mv Dockerfile $WORKINDIR/backend/
 cd $WORKINDIR/backend/
 docker-compose -f docker-compose.yml build --no-cache
-docker-compose -f  docker-compose.yml up -d
+docker-compose -f docker-compose.yml up -d
